@@ -16,14 +16,22 @@ class TicTacGame:
             row.add(plyr)
             if len(row) == 1:
                 return True
-        #TODO: add checking for win on column or diagonal
         for i in range(3):
             col = set(plyr)
             for j in range(3):
                 col.add(self.board[j][i])
             if len(col) == 1:
                 return True
-
+        backdiag = set(plyr)
+        for i in range(3):
+            backdiag.add(self.board[i][i])
+        if len(backdiag) == 1:
+            return True
+        fordiag = set(plyr)
+        for i in range(3):
+            fordiag.add(self.board[i][2-i])
+        if len(fordiag) == 1:
+            return True
         return False
             
     def row_to_str(self, pos):
