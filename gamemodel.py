@@ -17,6 +17,12 @@ class TicTacGame:
             if len(row) == 1:
                 return True
         #TODO: add checking for win on column or diagonal
+        for i in range(3):
+            col = set(plyr)
+            for j in range(3):
+                col.add(self.board[j][i])
+            if len(col) == 1:
+                return True
 
         return False
             
