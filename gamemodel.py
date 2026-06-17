@@ -13,19 +13,3 @@ class TicTacGame:
     def print_board(self):
         for i in self.board:
             print(i)
-
-def main():
-    # initialize game 
-    gm = TicTacGame()
-    gm.print_board()
-
-    # game loop
-    for i in range(9):
-        # TODO: add input checking
-        (plyr, thisx, thisy) = sys.arg[1]
-        print("Player {} requested ({},{})".format(plyr, thisx, thisy))
-        gm.choose_move(plyr, thisx, thisy)
-        gm.print_board()
-
-if __name__ == "__main__":
-    main()
