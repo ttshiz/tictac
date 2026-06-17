@@ -10,6 +10,13 @@ class TicTacGame:
     def choose_move(self, player, x, y):
         self.board[x][y] = player
 
+    def row_to_str(self, pos):
+        out = ""
+        for c in self.board[pos]:
+            out += c
+            out += "|"
+        return out[:-1]
     def print_board(self):
-        for i in self.board:
-            print(i)
+        for i in range(3):
+            print(self.row_to_str(i))
+            
