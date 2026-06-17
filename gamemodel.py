@@ -4,11 +4,14 @@ class TicTacGame:
     """ a game of Tic Tac Toe intentionally made extensible """
     def __init__(self):
         self.board = [[" " for i in range(3)] for j in range(3)]
-        self.player1 = "X"
-        self.player2 = "O"
+        #self.player1 = "X"
+        #self.player2 = "O"
 
     def choose_move(self, player, x, y):
-        self.board[x][y] = player
+        if self.board[x][y] == " ":
+            self.board[x][y] = player
+        else:
+            raise ValueError("Location already taken")
 
     def check_win(self, plyr):
         for i in self.board:
