@@ -11,8 +11,19 @@ def main(stdscr):
     for i in range(3):
         stdscr.addstr(i, 0, gm.row_to_str(i))
 
+    # initialize game loop
+    stdscr.addstr(3, 0, "Player symbol?") 
+    plyr = stdscr.getkey()
+    stdscr.addstr(4, 0, "row?") 
+    row = stdscr.getkey()
+    stdscr.addstr(5, 0, "column?") 
+    column = stdscr.getkey()
+    stdscr.addstr(6, 0, "Player {} requested ({},{})".format(plyr, row, column))
+    gm.choose_move(plyr, int(row), int(column))
+    for i in range(3):
+        stdscr.addstr(i, 0, gm.row_to_str(i))
     # game loop
-    for i in range(9):
+    while not gm.check_win(plyr):
         # TODO: add input checking
         stdscr.addstr(3, 0, "Player symbol?") 
         plyr = stdscr.getkey()
@@ -25,5 +36,7 @@ def main(stdscr):
         gm.choose_move(plyr, int(row), int(column))
         for i in range(3):
             stdscr.addstr(i, 0, gm.row_to_str(i))
+    stdscr.addstr(7, 0, "Player {} Won! Press Any Key to Quit".format(plyr))
+    stdscr.getch()
 
 wrapper(main)
