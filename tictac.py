@@ -3,10 +3,12 @@ import gamemodel
 from curses import wrapper
 
 def main(stdscr):
+    stdscr.clear()
+    
     # initialize game 
     gm = gamemodel.TicTacGame()
     gm.print_board()
-    stdscr.clear()
+ 
  
     for i in range(3):
         stdscr.addstr(i, 0, gm.row_to_str(i))
